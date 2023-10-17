@@ -1,0 +1,71 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            var ostatniaFunkcja;
+            function wykonajOstatnia(){
+                switch(ostatniaFunkcja){
+                    case 1:
+                        dodaj();
+                        break;
+                    case 2:
+                        odejmij();
+                        break;
+                    case 3:
+                        pomnoz();
+                        break;
+                    case 4:
+                        podziel();
+                        break;
+                }
+            }
+            function dodaj(){
+                var a = document.getElementById("liczba1").value;
+                var b = document.getElementById("liczba2").value;
+                ostatniaFunkcja = 1;
+                var wynik = (parseFloat(a)+parseFloat(b))
+                document.getElementById("wynik").innerHTML = ("Wynik wynosi: "+wynik);
+            }
+            function odejmij(){
+                var a = document.getElementById("liczba1").value;
+                var b = document.getElementById("liczba2").value;
+                ostatniaFunkcja = 2;
+                var wynik = (parseFloat(a)-parseFloat(b))
+                document.getElementById("wynik").innerHTML = ("Wynik wynosi: "+wynik);
+            }
+            function pomnoz(){
+                var a = document.getElementById("liczba1").value;
+                var b = document.getElementById("liczba2").value;
+                ostatniaFunkcja = 3;
+                var wynik = (parseFloat(a)*parseFloat(b))
+                document.getElementById("wynik").innerHTML = ("Wynik wynosi: "+wynik);
+            }
+            function podziel(){
+                var a = document.getElementById("liczba1").value;
+                var b = document.getElementById("liczba2").value;
+                a = parseFloat(a);
+                b = parseFloat(b);
+                ostatniaFunkcja = 4;
+                if(b!=0){
+                    
+                    var wynik = (a/b)
+                    document.getElementById("wynik").innerHTML = ("Wynik wynosi: "+wynik);
+                }
+                else{
+                    document.getElementById("wynik").innerHTML = ("Nie można dzielić przez 0");
+                }
+            
+                
+            }
+        </script>
+    
+        <label>A<input type="number" id="liczba1" onkeypress="wykonajOstatnia()"></label>
+        <label>B<input type="number" id="liczba2"onkeypress="wykonajOstatnia()"></label>
+        <button onclick="dodaj();">Dodawanie</button>
+        <button onclick="odejmij();">Odejmowanie</button>
+        <button onclick="pomnoz();">Mnożenie</button>
+        <button onclick="podziel();">Dzielenie</button>
+        <p id="wynik"></p>
+    </body>
+</html>
