@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script>
+            function minMax(){
+                let tab = [5,7,21,11,9,19,13];
+                var l = tab.length;
+                var min = tab[0];
+                var max = tab[0];
+                for(var i = 0; i < l; i++){
+                    if(tab[i] < min){
+                         min = tab[i];
+                    }             
+                    if(tab[i] > max){
+                         max = tab[i];
+                    }
+                }
+                document.write("<p>Wartość minimalna wynosi: " + min + "<p>a wartość maksymalna wynosi: " + max + "</P>");
+            }
+        </script>
+    </head>
+    <body>
+        <div id="funkcja">
+            <script>
+                minMax();
+            </script>
+        </div>
+    </body>
+</html>
