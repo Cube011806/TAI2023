@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            div div {
+                width: 100px;
+                height: 100px;
+                float: left;
+            }
+        </style>
+        <script>
+            let licznik = 0;
+            function start(){
+                licznik = 0;
+                czyscKosci();
+                czyscWymiana();
+                let lokalizacja = document.getElementById("kosci");
+                for(let i = 0; i < 5; i++){
+                    let divWzor = document.createElement("div");
+                    divWzor.id = "div";// + i;
+                    divWzor.style.width = "100px";
+                    divWzor.style.height = "100px";
+                    divWzor.style.float = "left";
+                    divWzor.style.margin = "10px";
+                    divWzor.style.backgroundColor = "beige";
+                    divWzor.style.textAlign = "center";
+                    divWzor.style.lineHeight = "100px";
+                    divWzor.onclick = function() 
+                    {
+                        lokalizacja = document.getElementById("kosci");
+                        lokalizacja.removeChild(divWzor); 
+                        licznik++;
+                        licznikWzor.innerHTML = "<b>Licznik do wymiany: </b>"+licznik;
+                    }
+                    let losowa = 1 + Math.floor(Math.random() * 6);
+                    divWzor.innerHTML += losowa;
+                    lokalizacja.appendChild(divWzor);
+                }
+                let licznikWzor = document.createElement("div");
+                licznikWzor.id = "licznik";
+                licznikWzor.style.width = "100px";
+                licznikWzor.style.height = "100px";
+                licznikWzor.style.float = "left";
+                licznikWzor.style.margin = "10px";
+                licznikWzor.style.backgroundColor = "aqua";
+                licznikWzor.style.textAlign = "center";
+                licznikWzor.style.fontSize = "10px";
+                licznikWzor.style.lineHeight = "100px";
+                licznikWzor.innerHTML = "<b>Licznik do wymiany: </b>"+licznik;
+                
+                lokalizacja.appendChild(licznikWzor);
+            }
+            function czyscKosci(){
+                let lokalizacja = document.getElementById("kosci");
+                lokalizacja.innerHTML = "";
+            }
+            function czyscWymiana(){
+                let lokalizacja = document.getElementById("wymiana");
+                lokalizacja.innerHTML = "";
+            }
+            function zamien(){
+                czyscWymiana();
+                let lokalizacja = document.getElementById("wymiana");
+                for(let i = 0; i<licznik;i++){
+                    let divWzor = document.createElement("div");
+                    divWzor.id = "div";// + i;
+                    divWzor.style.width = "100px";
+                    divWzor.style.height = "100px";
+                    divWzor.style.float = "left";
+                    divWzor.style.margin = "10px";
+                    divWzor.style.backgroundColor = "beige";
+                    divWzor.style.textAlign = "center";
+                    divWzor.style.lineHeight = "100px";
+                    /*
+                    divWzor.onclick = function() 
+                    {
+                        lokalizacja = document.getElementById("kosci");
+                        lokalizacja.removeChild(divWzor); 
+                        licznik++;
+                        licznikWzor.innerHTML = "<b>Licznik do wymiany: </b>"+licznik;
+                    }
+                    */
+                    let losowa = 1 + Math.floor(Math.random() * 6);
+                    divWzor.innerHTML += losowa;
+                    lokalizacja.appendChild(divWzor);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="start();">Losuj</button>
+        <button type="button" onclick="zamien();">Zamień</button>
+        <div id="kosci">
+        
+        </div>
+        
+        <div id="wymiana">
+        
+        </div>
+    </body>
+</html>
