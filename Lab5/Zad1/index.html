@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="lokalizacja">
+            
+        </div>
+        <script>
+            class Osoba {
+                constructor(imie,nazwisko, rokurodzenia) {
+                    this.imie = imie;
+                    this.nazwisko = nazwisko;
+                    this.rokurodzenia = rokurodzenia;
+                }
+                wypiszInformacje(){
+                    console.log(this.imie,this.nazwisko,this.rokurodzenia);
+                }
+                
+            }
+            class Pracownik extends Osoba {
+                constructor(imie,nazwisko,rokurodzenia,pensja,premia) {
+                    super(imie,nazwisko,rokurodzenia);
+                    this.pensja = pensja;
+                    this.premia = premia;
+                }
+                wypiszInformacje(){
+                    super.wypiszInformacje() + console.log(this.pensja,this.premia);
+                }
+                utworzRzadTabeli(){
+                    let ob = document.createElement("tr");
+                    let imienaz = document.createElement("td");
+                    imienaz.innerHTML = this.imie +" "+ this.nazwisko.charAt(0) + ".";
+                    ob.appendChild(imienaz);
+                   let pensja = document.createElement("td");
+                    pensja.innerHTML = this.pensja;
+                    ob.appendChild(pensja);
+                    let premia = document.createElement("td");
+                    premia.innerHTML = this.premia;
+                    ob.appendChild(premia);
+                    document.getElementById("tabela").appendChild(ob);
+                    
+                }
+            }
+            var os1 = new Osoba("Andrzej","Nowak",1954);
+            os1.wypiszInformacje();
+            var os2 = new Osoba("Bronisław","Borek",2000);
+            os2.wypiszInformacje();
+            var os3 = new Osoba("Artur","Wawryk",2001);
+            os3.wypiszInformacje();
+            var pr1 = new Pracownik("Donald", "Duck", 1932,1200,400);
+            var pr2 = new Pracownik("Mickey", "Mouse", 1930,10,0);
+            var pr3 = new Pracownik("Scrooge", "McDuck", 1867,3000000,500000);
+            var pr4 = new Pracownik("Huey", "Duck", 1952,2300,50);
+            pr1.wypiszInformacje();
+        
+            
+            let table = document.createElement("table");
+            table.setAttribute("id","tabela");
+            table.setAttribute("style","border: 1px solid black");
+            table.innerHTML += "<tr><th>Imię</th><th>Pensja</th><th>Premia</th></tr>";
+            document.getElementById("lokalizacja").appendChild(table);
+            pr1.utworzRzadTabeli();
+            pr2.utworzRzadTabeli();
+            pr3.utworzRzadTabeli();
+            pr4.utworzRzadTabeli();
+        </script>
+    </body>
+</html>
