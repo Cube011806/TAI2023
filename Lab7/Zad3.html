@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="p5.min.js"></script>
+        <style>
+            main { 
+                position: fixed;
+                left: 0; 
+                top: 0;
+                z-index: -1; 
+            }
+            div div { 
+                width: 200px;
+                height: 100px; 
+                background: white;
+                margin: 100px;
+                padding: 10px;
+                opacity: 0.8; 
+                border-radius: 10px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <main></main>
+        <div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+        </div>
+        <script>
+            let rysunek = null;
+            function preload() { 
+                rysunek = loadImage("https://cdn.pixabay.com/photo/2012/03/03/23/06/wall-21534_1280.jpg");
+            }
+            function setup() {
+                createCanvas(windowWidth, windowHeight, WEBGL); 
+                noStroke();
+            }
+            function windowResized() {
+                resizeCanvas(windowWidth, windowHeight); 
+            }
+            let kat = 0.0;
+            function draw() {
+                background(0, 10, 40); 
+                lights(); 
+                rotateY(kat); 
+                texture(rysunek); 
+                sphere(100); 
+                kat += 0.02;
+                //camera(0, mouseX, 500, 0, 0, 0) //podpunkt nr 4 zad3
+                camera(0, window.scrollY, 500, 0, 0, 0)
+            }
+        </script>
+    </body>
+</html>
